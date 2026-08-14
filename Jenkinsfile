@@ -58,7 +58,7 @@ pipeline {
         stage('Prod E2E') {
 
             environment {
-                CI_ENVIRONMENT_URL : 'https://visionary-pie-da20ca.netlify.app'
+                CI_ENVIRONMENT_URL = 'https://visionary-pie-da20ca.netlify.app'
             }
 
             steps {
