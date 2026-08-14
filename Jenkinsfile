@@ -44,7 +44,20 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy staging') {
+            steps {
+                sh '''
+                    npm install -g netlify-cli@20.1.1
+                    netlify --version
+                    echo "프로젝트 스테이징 배포중... 사이트 아이디 : $NETLIFY_SITE_ID"
+                    netlify status
+                    netlify deploy --dir=build
+                '''
+            }
+        }
+
+
+        stage('Deploy prod') {
             steps {
                 sh '''
                     npm install -g netlify-cli@20.1.1
