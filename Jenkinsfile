@@ -34,6 +34,7 @@ pipeline {
                     npm install -g serve
                     serve -s build & sleep 10
                     npx playwright test
+                    npx playwrighht test --report=html
                 '''
             }
         }
